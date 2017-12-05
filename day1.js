@@ -3,3 +3,5 @@ const input = "64971395968289825957777798234951578482268493996619135916436993343
 for(let position = 0; position <= input.length; position++) {
   console.log(input[position])
 }
+
+export default '1'
