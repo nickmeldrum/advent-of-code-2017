@@ -2,21 +2,17 @@ import fs from 'fs'
 
 const parse = data => data.split('\n')
   .filter(row => row)
-  .map(row => row.split(' ').map(element => parseInt(element, 10)))
+  .map(row => row.split('\t').map(element => parseInt(element, 10)))
 
-const sum = spreadsheet => {
-  let result = 0
-  spreadsheet.forEach(row => {
-    let min = Number.MAX_SAFE_INTEGER
-    let max = 0
-    row.forEach(element => {
-      if (element < min) min = element
-      if (element > max) max = element
-    })
-    result = result + max - min
+const sum = spreadsheet => spreadsheet.reduce((sum, row) => {
+  let min = Number.MAX_SAFE_INTEGER
+  let max = 0
+  row.forEach(element => {
+    if (element < min) min = element
+    if (element > max) max = element
   })
-  return result
-}
+  return sum + max - min
+}, 0)
 
 export const sumAllDifferences = (filename, cb) => {
   fs.readFile(`./${filename}.txt`, 'utf8', (err, data) => {
