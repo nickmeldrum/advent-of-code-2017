@@ -29,6 +29,14 @@ describe('day1 - inverse captcha', () => {
   describe('part 2 - sum digits matching digit halfway around', () => {
     test(sumMatchingDigitHalfWayAround).withData([
       {input: '1212', expected: 6},
+      {input: '1221', expected: 0},
+      {input: '123425', expected: 4},
+      {input: '123123', expected: 12},
+      {input: '12131415', expected: 4},
     ])
+
+    it('just output the puzzle answer and pass :)', () => {
+      console.log('And the day 1 part 2 answer is:', sumMatchingDigitHalfWayAround(puzzleInput))
+    })
   })
 })
