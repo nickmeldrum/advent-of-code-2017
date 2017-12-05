@@ -5,7 +5,9 @@ import { sumMatchingDigits } from 'day1-inverse-captcha'
 describe('day1 - inverse captcha', () => {
   [
     {input: '1122', expected: 3},
+    {input: '1111', expected: 4},
     {input: '1234', expected: 0},
+    {input: '91212129', expected: 9},
   ].forEach(testData => {
     it(`returns ${testData.expected} for ${testData.input}`, () => {
       expect(sumMatchingDigits(testData.input)).toEqual(testData.expected)
