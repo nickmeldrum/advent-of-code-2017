@@ -11,5 +11,9 @@ describe('day3 - spiral memory', () => {
       {input: 23, expected: 2},
       {input: 1024, expected: 31},
     ])
+
+    it('just output the puzzle answer and pass :)', () => {
+      console.log('And the day 3 part 1 answer is:', manhattanDistance(289326))
+    })
   })
 })
