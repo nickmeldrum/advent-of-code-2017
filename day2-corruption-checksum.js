@@ -1,8 +1,4 @@
-import fs from 'fs'
-
-const parse = data => data.split('\n')
-  .filter(row => row)
-  .map(row => row.split('\t').map(element => parseInt(element, 10)))
+import { funcOnNumberFile } from 'file-parser'
 
 const sumDifferences = spreadsheet => spreadsheet.reduce((sum, row) => {
   let min = Number.MAX_SAFE_INTEGER
@@ -27,12 +23,5 @@ const sumEvenly = spreadsheet => spreadsheet.reduce((sum, row) => {
   throw new Error('no evenly divisble numbers found')
 }, 0)
 
-const sumFromFile = (sumFunc, filename, cb) => {
-  fs.readFile(`./${filename}.txt`, 'utf8', (err, data) => {
-    if (err) throw err
-    cb(sumFunc(parse(data)))
-  })
-}
-
-export const sumAllDifferences = sumFromFile.bind(null, sumDifferences)
-export const sumEvenlyDivisibleValues = sumFromFile.bind(null, sumEvenly)
+export const sumAllDifferences = funcOnNumberFile(sumDifferences)
+export const sumEvenlyDivisibleValues = funcOnNumberFile(sumEvenly)
