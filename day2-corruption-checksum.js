@@ -16,7 +16,7 @@ const sumDifferences = spreadsheet => spreadsheet.reduce((sum, row) => {
 
 const sumEvenly = spreadsheet => spreadsheet.reduce((sum, row) => {
   for (let i = 0; i < row.length; i++) {
-    for (let j = i; j < row.length; j++) {
+    for (let j = i + 1; j < row.length; j++) {
       const dividend = row[i] > row[j] ? row[i] : row[j]
       const divisor = row[i] > row[j] ? row[j] : row[i]
       if (dividend % divisor === 0) {

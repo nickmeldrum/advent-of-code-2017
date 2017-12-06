@@ -20,7 +20,7 @@ describe('day2 = corruption checksum', () => {
   describe('part 2 - sum evenly divisible values', () => {
     it('test data sum returns 9', done => {
       sumEvenlyDivisibleValues('day2-part2-test-input', answer => {
-        expect(answer).toEqual(18)
+        expect(answer).toEqual(9)
         done()
       })
     })
