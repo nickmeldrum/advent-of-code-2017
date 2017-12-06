@@ -1,4 +1,4 @@
-import { manhattanDistance } from 'day3-spiral-memory'
+import { manhattanDistance, accumulatedValues } from 'day3-spiral-memory'
 import { test } from 'test-creator'
 
 describe('day3 - spiral memory', () => {
@@ -13,7 +13,14 @@ describe('day3 - spiral memory', () => {
     ])
 
     it('just output the puzzle answer and pass :)', () => {
-      console.log('And the day 3 part 1 answer is:', manhattanDistance(289326))
+      console.log('And the day 3 part 1 answer is:', 'uncomment the line, the test is too slow!')
+      // console.log('And the day 3 part 1 answer is:', manhattanDistance(289326))
     })
+  })
+
+  describe('part 2 - accumulated values', () => {
+    test(accumulatedValues).withData([
+      {input: 6, expected: 10},
+    ])
   })
 })
