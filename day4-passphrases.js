@@ -1,19 +1,13 @@
-import { funcOnStringFile } from 'file-parser'
+import { parseFileOfStringsToEvaluate } from 'file-parser'
 
-const howManyValid = passphrases => {
-  let numberValid = 0
-  passphrases.forEach(passphrase => {
-    if (isValid(passphrase)) ++numberValid
-  })
-  return numberValid
-}
+const howMany = predicate => passphrases => passphrases.filter(predicate).length
+const validBasedOn = predicate => passphrase => !passphrase.some(word => passphrase.filter(predicate(word)).length > 1)
 
-export const isValid = passphrase => {
-  for (let i = 0; i < passphrase.length; i++) {
-    if (passphrase.filter(el => el === passphrase[i]).length > 1)
-      return false
-  }
-  return true
-}
+const isEqual = check => el => el === check
+const isAnAnagram = check => el => el.split('').sort().toString() === check.split('').sort().toString()
 
-export const numberOfValidPassphrases = funcOnStringFile(howManyValid)
+export const isValidBasedOnDuplicates = validBasedOn(isEqual)
+export const isValidBasedOnAnagrams = validBasedOn(isAnAnagram)
+
+export const numberOfValidDuplicatesPassphrases = parseFileOfStringsToEvaluate(howMany(isValidBasedOnDuplicates))
+export const numberOfValidAnagramsPassphrases = parseFileOfStringsToEvaluate(howMany(isValidBasedOnAnagrams))

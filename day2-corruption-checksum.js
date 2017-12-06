@@ -1,4 +1,4 @@
-import { funcOnNumberFile } from 'file-parser'
+import { parseFileOfNumbersToEvaluate } from 'file-parser'
 
 const sumDifferences = spreadsheet => spreadsheet.reduce((sum, row) => {
   let min = Number.MAX_SAFE_INTEGER
@@ -23,5 +23,5 @@ const sumEvenly = spreadsheet => spreadsheet.reduce((sum, row) => {
   throw new Error('no evenly divisble numbers found')
 }, 0)
 
-export const sumAllDifferences = funcOnNumberFile(sumDifferences)
-export const sumEvenlyDivisibleValues = funcOnNumberFile(sumEvenly)
+export const sumAllDifferences = parseFileOfNumbersToEvaluate(sumDifferences)
+export const sumEvenlyDivisibleValues = parseFileOfNumbersToEvaluate(sumEvenly)

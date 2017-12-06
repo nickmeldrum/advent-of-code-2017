@@ -1,0 +1,5 @@
+ab	bb	cc	ba	ee
+ab	bb	cc	dd	aa
+ab	bb	cc	bab	ee
+ab	bb	cc	baba	ee
+ab	bb	cc	b	ee
