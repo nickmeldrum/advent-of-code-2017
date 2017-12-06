@@ -27,16 +27,12 @@ const sumEvenly = spreadsheet => spreadsheet.reduce((sum, row) => {
   throw new Error('no evenly divisble numbers found')
 }, 0)
 
-export const sumAllDifferences = (filename, cb) => {
+const sumFromFile = (sumFunc, filename, cb) => {
   fs.readFile(`./${filename}.txt`, 'utf8', (err, data) => {
     if (err) throw err
-    cb(sumDifferences(parse(data)))
+    cb(sumFunc(parse(data)))
   })
 }
 
-export const sumEvenlyDivisibleValues = (filename, cb) => {
-  fs.readFile(`./${filename}.txt`, 'utf8', (err, data) => {
-    if (err) throw err
-    cb(sumEvenly(parse(data)))
-  })
-}
+export const sumAllDifferences = sumFromFile.bind(null, sumDifferences)
+export const sumEvenlyDivisibleValues = sumFromFile.bind(null, sumEvenly)
