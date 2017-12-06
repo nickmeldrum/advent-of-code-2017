@@ -1,6 +1,6 @@
 import { sumAllDifferences, sumEvenlyDivisibleValues } from 'day2-corruption-checksum'
 
-describe('day2 = corruption checksum', () => {
+describe('day2 - corruption checksum', () => {
   describe('part 1 - sum all differences', () => {
     it('test data sum returns 18', done => {
       sumAllDifferences('day2-part1-test-input', answer => {
